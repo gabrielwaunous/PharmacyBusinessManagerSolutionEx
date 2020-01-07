@@ -41,10 +41,8 @@ namespace ClaimImportTool
             }
         }
 
-        private void ClaimDOIValidation()
-        {
-            DOI = DOI.AddMonths(-1);
-        }
+        private void ClaimDOIValidation() => DOI = DOI.AddMonths(-1);
+        
     }
 }
 

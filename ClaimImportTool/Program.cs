@@ -13,6 +13,7 @@ namespace ClaimImportTool
             engine.ImportProcess();
 
             Console.WriteLine("\n\n¡¡Ending Claim Import Tool flow!!");
+            Console.ReadLine();
         }
     }
 }
