@@ -9,27 +9,38 @@ namespace ClaimImportTool
 {
     public class ClaimEngine
     {
+        private readonly ILogger _logger;
+        private readonly IClaimsSource _claimSource;
+        private readonly IClaimSerializer _claimSerializer;
+
+        public ClaimEngine(
+            ILogger logger,
+            IClaimsSource claimSource,
+            IClaimSerializer claimSerializer
+            )
+        {
+            _logger = logger;
+            _claimSource = claimSource;
+            _claimSerializer = claimSerializer;
+        }
         public void ImportProcess()
         {
 
-            Console.WriteLine("Starting Import.");
-            Console.WriteLine("Loading Claims.");
+            _logger.Log("Starting Import.");
+            _logger.Log("Loading Claims.");
 
-            string claimSource = File.ReadAllText("ClaimsSource.json");
+            string claimString = _claimSource.GetClaimsFromSource();
 
-            IEnumerable<Claim> claimList = JsonConvert.DeserializeObject<IEnumerable<Claim>>(claimSource, new StringEnumConverter());
+            IEnumerable<Claim> claimList = _claimSerializer.GetClaimFromString(claimString);
 
-            Console.WriteLine("Claim Imported.");
+            _logger.Log("Claim Imported.");
             foreach (var Claim in claimList)
             {
                 Claim.Validate();
-                Console.WriteLine("Claim Number: {0} - Type: {1} - Date of Injury: {2} - Claimant: {3}", Claim.Number, Claim.Type, Claim.DOI.ToShortDateString(), Claim.Claimant.LastName + " " + Claim.Claimant.FirstName);
+                _logger.Log("Claim Number: "+ Claim.Number + " - Type: "+ Claim.Type + " - Date of Injury: "+ Claim.DOI.ToShortDateString() + " - Claimant: "+ Claim.Claimant.LastName + " " + Claim.Claimant.FirstName);
             }
 
-            Console.WriteLine("Claim Reported.");
-
-
-
+            _logger.Log("Claim Reported.");
         }
 
     }

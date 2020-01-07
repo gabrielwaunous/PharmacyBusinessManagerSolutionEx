@@ -6,13 +6,21 @@ namespace ClaimImportTool
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Pharmacy Business Manager Solution v0.1");
-            Console.WriteLine("¡¡Starting Claim Import Tool flow!!");
+            ILogger logger = new ConsoleLogger();
 
-            var engine = new ClaimEngine();
+            logger.Log("Pharmacy Business Manager Solution v0.1");
+
+            logger.Log("¡¡Starting Claim Import Tool flow!!");
+
+            var engine = new ClaimEngine(
+                logger, 
+                new FileClaimSource(), 
+                new ClaimSerializer()
+            );
+
             engine.ImportProcess();
 
-            Console.WriteLine("\n\n¡¡Ending Claim Import Tool flow!!");
+            logger.Log("\n\n¡¡Ending Claim Import Tool flow!!");
             Console.ReadLine();
         }
     }
