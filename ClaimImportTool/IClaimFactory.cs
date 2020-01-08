@@ -6,6 +6,6 @@ namespace ClaimImportTool
 {
     public interface IClaimFactory
     {
-        void ClaimProcessor(IEnumerable<Claim> ListOfClaims);
+        void ClaimProcessor(IEnumerable<ClaimDTO> ListOfClaims);
     }
 }

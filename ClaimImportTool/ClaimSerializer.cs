@@ -6,11 +6,11 @@ using System.Text;
 
 namespace ClaimImportTool
 {
-    class ClaimSerializer : IClaimSerializer
+    public class ClaimSerializer : IClaimSerializer
     {
-        public IEnumerable<Claim> GetClaimFromString(string claimString)
-        {
-            return JsonConvert.DeserializeObject<IEnumerable<Claim>>(claimString, new StringEnumConverter());
-        }
+        public IEnumerable<ClaimDTO> GetClaimFromString(string claimString)
+                => JsonConvert.DeserializeObject<IEnumerable<ClaimDTO>>(claimString, 
+                    new StringEnumConverter());
+        
     }
 }

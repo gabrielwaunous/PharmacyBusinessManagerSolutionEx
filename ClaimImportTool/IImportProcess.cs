@@ -4,10 +4,8 @@ using System.Text;
 
 namespace ClaimImportTool
 {
-    public enum ClaimType
+    public interface IImportProcess
     {
-        WC = 0,
-        Auto = 1,
-        UnKnown = -1
+        void SaveClaim(ILogger Logger, Claim Claim);
     }
 }

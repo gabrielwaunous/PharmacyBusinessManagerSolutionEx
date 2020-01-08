@@ -6,6 +6,6 @@ namespace ClaimImportTool
 {
     public interface IClaimSerializer
     {
-        IEnumerable<Claim> GetClaimFromString(string claimString);
+        IEnumerable<ClaimDTO> GetClaimFromString(string claimString);
     }
 }

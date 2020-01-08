@@ -28,13 +28,12 @@ namespace ClaimImportTool
         }
         public void ImportProcess()
         {
-
             _logger.Log("Starting Import.");
             _logger.Log("Loading Claims.");
 
             string claimString = _claimSource.GetClaimsFromSource();
 
-            IEnumerable<Claim> claimList = _claimSerializer.GetClaimFromString(claimString);
+            IEnumerable<ClaimDTO> claimList = _claimSerializer.GetClaimFromString(claimString);
 
             _logger.Log("Claim Imported.");
 

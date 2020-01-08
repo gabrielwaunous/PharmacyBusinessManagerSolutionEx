@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.960
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClaimImportTool", "ClaimImportTool\ClaimImportTool.csproj", "{BEF1B782-0E2F-4E85-9B85-785D3F74AB06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClaimImportTool.Test", "ClaimImportTool.Test\ClaimImportTool.Test.csproj", "{1BE930D7-09B5-40F7-B1E2-F1A20124BF13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BEF1B782-0E2F-4E85-9B85-785D3F74AB06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEF1B782-0E2F-4E85-9B85-785D3F74AB06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEF1B782-0E2F-4E85-9B85-785D3F74AB06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BE930D7-09B5-40F7-B1E2-F1A20124BF13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BE930D7-09B5-40F7-B1E2-F1A20124BF13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BE930D7-09B5-40F7-B1E2-F1A20124BF13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BE930D7-09B5-40F7-B1E2-F1A20124BF13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

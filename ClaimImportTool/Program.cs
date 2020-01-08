@@ -16,7 +16,7 @@ namespace ClaimImportTool
                 logger, 
                 new FileClaimSource(), 
                 new ClaimSerializer(),
-                new ClaimFactory(logger)
+                new ClaimFactory(logger, new ImportProcess())
             );
 
             engine.ImportProcess();

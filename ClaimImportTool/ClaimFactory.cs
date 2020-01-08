@@ -1,24 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ClaimImportTool
 {
-    class ClaimFactory : IClaimFactory
+    public class ClaimFactory : IClaimFactory
     {
         private readonly ILogger _logger;
-        public ClaimFactory(ILogger Logger)
+        private readonly IImportProcess _importProcess;
+
+        public ClaimFactory(ILogger Logger, IImportProcess ImportProcess)
         {
             _logger = Logger;
+            _importProcess = ImportProcess;
         }
-        public void ClaimProcessor(IEnumerable<Claim> ListOfClaims)
+
+        public void ClaimProcessor(IEnumerable<ClaimDTO> ListOfClaims)
         {
-            foreach (Claim Claim in ListOfClaims)
+            foreach (ClaimDTO ClaimString in ListOfClaims)
             {
-                Claim.Validate();
-                _logger.Log("Claim Number: " + Claim.Number + " - Type: " + Claim.Type + " - Date of Injury: " + Claim.DOI.ToShortDateString() + " - Claimant: " + Claim.Claimant.LastName + " " + Claim.Claimant.FirstName);
+                Validator Claim = Create(ClaimString);
+
+                _importProcess.SaveClaim(_logger, Claim.Claim);
             }
         }
 
+        public Validator Create(ClaimDTO ClaimString)
+        {
+            try
+            {
+                return (Validator)Activator.CreateInstance(
+                    Type.GetType($"ClaimImportTool.Claim{ClaimString.Type}Validator"),
+                    new object[] { _logger, ClaimString });
+            }
+            catch (Exception)
+            {
+
+                return new UnKnownClaimType(_logger, ClaimString);
+            }
+        }
     }
 }

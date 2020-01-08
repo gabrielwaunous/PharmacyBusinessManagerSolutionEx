@@ -27,7 +27,7 @@
     }
   },
   {
-    "Type": "Auto",
+    "Type": "FutureType",
     "DOI": "2020-01-01T00:00:00Z",
     "Number": "123789-01",
     "Claimant": {
