@@ -12,16 +12,19 @@ namespace ClaimImportTool
         private readonly ILogger _logger;
         private readonly IClaimsSource _claimSource;
         private readonly IClaimSerializer _claimSerializer;
+        private readonly IClaimFactory _claimFactory;
 
         public ClaimEngine(
             ILogger logger,
             IClaimsSource claimSource,
-            IClaimSerializer claimSerializer
+            IClaimSerializer claimSerializer,
+            IClaimFactory claimFactory
             )
         {
             _logger = logger;
             _claimSource = claimSource;
             _claimSerializer = claimSerializer;
+            _claimFactory = claimFactory;
         }
         public void ImportProcess()
         {
@@ -34,11 +37,8 @@ namespace ClaimImportTool
             IEnumerable<Claim> claimList = _claimSerializer.GetClaimFromString(claimString);
 
             _logger.Log("Claim Imported.");
-            foreach (var Claim in claimList)
-            {
-                Claim.Validate();
-                _logger.Log("Claim Number: "+ Claim.Number + " - Type: "+ Claim.Type + " - Date of Injury: "+ Claim.DOI.ToShortDateString() + " - Claimant: "+ Claim.Claimant.LastName + " " + Claim.Claimant.FirstName);
-            }
+
+            _claimFactory.ClaimProcessor(claimList);
 
             _logger.Log("Claim Reported.");
         }
