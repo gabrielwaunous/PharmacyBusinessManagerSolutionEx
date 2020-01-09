@@ -9,8 +9,8 @@ namespace ClaimImportTool
     {
         static void Main(string[] args)
         {
-            //ILogger logger = new ConsoleLogger();
-            ILogger logger = new FileLogger();
+            ILogger logger = new ConsoleLogger();
+            //ILogger logger = new FileLogger();
 
             logger.Log("Pharmacy Business Manager Solution v0.1");
 

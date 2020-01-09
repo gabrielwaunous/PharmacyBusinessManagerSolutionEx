@@ -24,7 +24,7 @@ namespace ClaimImportTool
             }
         }
 
-        public Validator Create(ClaimDTO ClaimString)
+        private Validator Create(ClaimDTO ClaimString)
         {
             try
             {
@@ -34,7 +34,6 @@ namespace ClaimImportTool
             }
             catch (Exception)
             {
-
                 return new UnKnownClaimType(_logger, ClaimString);
             }
         }
