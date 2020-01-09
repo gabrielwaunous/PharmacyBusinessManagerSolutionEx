@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ClaimImportTool
 {
-    public class ClaimSerializer : IClaimSerializer
+    public class JsonClaimSerializer : IClaimSerializer
     {
         public IEnumerable<ClaimDTO> GetClaimFromString(string claimString)
                 => JsonConvert.DeserializeObject<IEnumerable<ClaimDTO>>(claimString, 

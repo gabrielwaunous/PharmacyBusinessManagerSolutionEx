@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ClaimImportTool
 {
-    class FileClaimSource : IClaimsSource
+    class JsonFileClaimSource : IClaimsSource
     {
         public string GetClaimsFromSource()=> File.ReadAllText("ClaimsSource.json");
     }

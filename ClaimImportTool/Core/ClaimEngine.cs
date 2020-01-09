@@ -28,8 +28,8 @@ namespace ClaimImportTool
         }
         public void ImportProcess()
         {
-            _logger.Log("Starting Import.");
-            _logger.Log("Loading Claims.");
+            _logger.Log("\nStarting Import.");
+            _logger.Log("\nLoading Claims.");
 
             string claimString = _claimSource.GetClaimsFromSource();
 

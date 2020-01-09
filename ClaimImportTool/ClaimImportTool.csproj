@@ -10,6 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="ClaimSource.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="ClaimsSource.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

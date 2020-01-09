@@ -10,7 +10,7 @@ namespace ClaimImportTool.Test
         public void ReturnsDefaultPolicyFromEmptyJsonStringArray()
         {
             string inputJson = "[{ }]";
-            IClaimSerializer serializer = new ClaimSerializer();
+            IClaimSerializer serializer = new JsonClaimSerializer();
 
             IEnumerable<ClaimDTO> result = serializer.GetClaimFromString(inputJson);
 
