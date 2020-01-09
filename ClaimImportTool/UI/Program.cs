@@ -18,17 +18,17 @@ namespace ClaimImportTool
 
             var engine = new ClaimEngine(
                 logger, 
-                //new JsonFileClaimSource(), 
-                new XmlFileClaimSource(), 
-                //new JsonClaimSerializer(),
-                new XmlClaimSerializer(),
+                new JsonFileClaimSource(), 
+                //new XmlFileClaimSource(), 
+                new JsonClaimSerializer(),
+                //new XmlClaimSerializer(),
                 new ClaimFactory(logger, new ImportProcess())
             );
 
             engine.ImportProcess();
 
             logger.Log("\n\n¡¡Ending Claim Import Tool flow!!");
-            Console.ReadLine();
+            //Console.ReadLine();
         }
     }
 }

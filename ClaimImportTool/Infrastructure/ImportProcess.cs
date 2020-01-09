@@ -8,6 +8,7 @@ namespace ClaimImportTool
     {
         public void SaveClaim(ILogger Logger, Claim Claim)
         {
+            //Improve with Reflection
             Logger.Log("Claim Number: " + Claim.Number + " - Type: " + Claim.Type + " - Date of Injury: " + Claim.DOI.ToShortDateString() + " - Claimant: " + Claim.Claimant.LastName + " " + Claim.Claimant.FirstName);
         }
     }
